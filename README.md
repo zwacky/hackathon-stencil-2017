@@ -1,92 +1,52 @@
-# hackathon-stencil-2017
+# Stencil App Starter
 
-## WHAT IS STENCIL
+Stencil is a compiler for building fast web apps using Web Components.
 
-- A Compiler for Web Components
+Stencil combines the best concepts of the most popular frontend frameworks into a compile-time rather than run-time tool.  Stencil takes TypeScript, JSX, a tiny virtual DOM layer, efficient one-way data binding, an asynchronous rendering pipeline (similar to React Fiber), and lazy-loading out of the box, and generates 100% standards-based Web Components that run in any browser supporting the Custom Elements v1 spec.
 
+Stencil components are just Web Components, so they work in any major framework or with no framework at all. In many cases, Stencil can be used as a drop in replacement for traditional frontend frameworks given the capabilities now available in the browser, though using it as such is certainly not required.
 
-## WHY STENCIL
+Stencil also enables a number of key capabilities on top of Web Components, in particular Server Side Rendering (SSR) without the need to run a headless browser, pre-rendering, and objects-as-properties (instead of just strings).
 
-- easily integrated into any other framework (thx to WebComponents)
-- feels very 'modern' to use (thx to TS, JSX, CLI)
-- lightweight and perfect to bundle components, all with styles
-- backed by Ionic with beautiful UI components to use right out of the box ([example](http://ionicframework.com/docs/components/))
-  - example project using [Ionic's UI components](https://github.com/ionic-team/ionic-conference-app)
+## Getting Started
 
+To start a new project using Stencil, clone this repo to a new directory:
 
-## LEARN
-
-- TypeScript
-- JSX
-- Virtual DOM
-- Async rendering (inspired by React Fiber)
-- Reactive data-binding
-- WebComponents
-
-
-## HEADS UP
-
-- stencil is not prime time ready yet
-- the unreleased Ionic 4 version will be entirely built with stencil
-
-
-## SETUP PROJECT
-
-```
-git clone https://github.com/ionic-team/stencil-app-starter my-app
+```bash
+git clone https://github.com/ionic-team/stencil-starter.git my-app
 cd my-app
 git remote rm origin
-npm install
+```
 
+and run:
+
+```bash
+npm install
 npm start
 ```
 
+To view the build, start an HTTP server inside of the `/www` directory.
 
-## WHERE TO START
+To watch for file changes during development, run:
 
-### STEP 1: play around a bit
-
-- discover tree structure (scss, ts, tsx)
-  - .scss: styles
-  - .spec.ts: usually tests
-  - .tsx: components using TypeScript's JSX version
-  - .ts: helper classes (can be used by components)
-- check out live reloads
-- 1) try to add another button in **app-home.tsx** that will console.log upon click (`<button onClick={this.doSomething}>test me</button>`)
-- 2) create a fresh component that takes parameters https://github.com/ionic-team/stencil#creating-components
-  - takes your first and last name
-
-
-### STEP 2: fetching data & 3rd party libraries
-
-- there is no direct integration of 3rd party libraries (e.g. fetch, axios, rxJS, ...)
-  - 3rd party libraries need to be present outside the stencil component (e.g. load it directly in **index.html**)
-  - going to use `window.fetch` that is ~80% adopted unpolyfilled (no IE)
-- let's create a component that `window.fetch`es our backend services for data and display them within it
-
-
-### STEP 3: let's use stencil's beauty power
-
-- `npm install @ionic/core@next --save`
-- add `{ name: '@ionic/core'},` to stencil.config.js @ config.collections
-- checkout and use [all these 29 components!](http://ionicframework.com/docs/components/)
-  - from Ionic 3 to 4 there are some minor differences in using them (check [this example project](https://github.com/jgw96/stencil-beer) for currently used components)
-
-```
-<ion-list>
-  {['item', 'another one', 'yup!'].map(item => {
-    return <ion-item>
-      { item }
-    </ion-item>;
-  })}
-</ion-list>
+```bash
+npm run dev
 ```
 
+To build the app for production, run:
 
+```bash
+npm run build
+```
 
-## RESOURCES
+To run the unit tests once, run:
 
-- https://stenciljs.com
-- https://github.com/ionic-team/stencil (issues)
-- https://jsx.github.io/doc.html (JSX docs)
-- https://github.com/jgw96/stencil-beer (used UI components)
+```
+npm test
+```
+
+To run the unit tests and watch for file changes during development, run:
+
+```
+npm run test.watch
+```
